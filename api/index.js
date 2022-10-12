@@ -65,7 +65,6 @@ app.delete("/game/:id", (req, res) => {
     } else {
 
         let { id } = req.params
-
         ModelGame.findOne({
             where: { id: id }
         }).then((game) => {
