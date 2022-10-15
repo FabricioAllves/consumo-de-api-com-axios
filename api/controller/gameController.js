@@ -86,9 +86,9 @@ const dataList = {
                 if (year != undefined) {
                     game.update({ price: price }, { where: { id: id } })
                 }
-                res.status(200)
+                res.sendStatus(200)
             } catch (err) {
-                res.sendStatus(500);
+                console.log(err);
             }
         }
     }

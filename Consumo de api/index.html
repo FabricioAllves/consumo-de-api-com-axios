@@ -38,8 +38,8 @@
             price : priceInput.value
         }
 
-        axios.post("http://localhost:2222/game",game).then(resp => {
-            if(resp.status == 200){
+        axios.post("http://localhost:3333/createGame",game).then(resp => {
+            if(resp.status == 201){
                 alert("Game cadastrado!")
                 location.reload()
             }
@@ -51,7 +51,7 @@
     function deleteGame(itemList){
         let id =itemList.getAttribute("data-id")
         
-        axios.delete("http://localhost:2222/game/"+id).then(response => {
+        axios.delete("http://localhost:3333/remove/"+id).then(response => {
             alert("Game deletado!")
             location.reload()
         }).catch(err => {
@@ -86,7 +86,7 @@
 
         let id = idInput.value;
 
-        axios.put("http://localhost:2222/game/"+id,game).then(resp => {
+        axios.put("http://localhost:3333/update/"+id,game).then(resp => {
             if(resp.status == 200){
                 alert("Game Atualizado!")
                 location.reload()
@@ -96,7 +96,7 @@
         })
     }
 
-    axios.get("http://localhost:2222/games").then(resp => {
+    axios.get("http://localhost:3333/listAll").then(resp => {
         games = resp.data
         var list = document.getElementById("games");
 
