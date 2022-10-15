@@ -63,7 +63,7 @@ node index.js
 ```
 Se tudo ocorreu bem, após ter configurado corretamente o banco de dados, após executar o comando acima, deverá obter a seguinte mensagem no terminal:
 ```
-Server started on port 2222! 🏆 GET http://localhost:3333
+Server started on port 3333! 🏆 GET http://localhost:3333
 ```
 Indicando que o servidor está rodando em localhost na porta 3333
 ## 🎈 Games EndPoints <a name="usage"></a>
