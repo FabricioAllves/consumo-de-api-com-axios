@@ -21,7 +21,7 @@ const dataList = {
             res.status(201).json(newGame)
         }catch (error) {
             console.log(error)
-            res.sendStatus(500)
+            res.sendStatus(400)
         }
     },
 
@@ -88,7 +88,7 @@ const dataList = {
                 }
                 res.sendStatus(200)
             } catch (err) {
-                console.log(err);
+                res.sendStatus(200)
             }
         }
     }
