@@ -37,9 +37,8 @@ const dataList = {
                 } else {
                     return res.sendStatus(404)
                 }
-
             } catch (error) {
-                return res.Status(404)
+                return res.Status(500)
             }
         }
     },
@@ -59,7 +58,7 @@ const dataList = {
                     return res.sendStatus(404)
                 }
             } catch (error) {
-                return res.sendStatus(400)
+                return res.sendStatus(500)
             }
         }
     },
