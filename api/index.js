@@ -11,15 +11,12 @@ app.use(bodyParser.json());
 app.use(cors())
 
 
-connection.authenticate().then(() => {
-    console.log("Banco conectado com sucesso!!")
-}).catch((err) => {
-    console.error("Banco não conectado!")
-})
+connection.authenticate().then(() => {console.log("Banco conectado com sucesso!!")})
+.catch(() => {console.error("Banco não conectado!")})
 
 app.use('/', express.json(), gameRouter)
 
 const PORT = 3333;
 app.listen(PORT, () => {
-    console.log(`Running server in Port: http://localhost:${PORT}/`);
+console.log(`Running server in Port: http://localhost:${PORT}/`);
 });

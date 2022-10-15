@@ -3,9 +3,9 @@ const GamesModel = require("../database/ModelConnection")
 const dataList = {
     listAll: async function (req, res) {
         let dataList = await GamesModel.findAll();
-
-        if (dataList == null) {
-            return res.status(400).send("Lista vazia")
+        let num = 0
+        if (dataList.length == num) {
+            res.send("Lista vazia!")
         } else {
             res.json(dataList).status(200);
         }
@@ -19,8 +19,9 @@ const dataList = {
                 price: req.body.price
             })
             res.status(201).json(newGame)
-        } catch (error) {
-            res.sendStatus(400)
+        }catch (error) {
+            console.log(error)
+            res.sendStatus(500)
         }
     },
 
@@ -53,12 +54,12 @@ const dataList = {
 
                 if (searchIdDelete != null) {
                     const remove = searchIdDelete.destroy(searchIdDelete)
-                    res.status(201).json(remove)
+                    res.status(200).json(remove)
                 } else {
                     return res.sendStatus(404)
                 }
             } catch (error) {
-                return res.sendStatus(404)
+                return res.sendStatus(400)
             }
         }
     },
@@ -70,9 +71,9 @@ const dataList = {
 
             try {
                 var { title, price, year } = req.body
-                var {id} = req.params;
-                let game = await GamesModel.findOne({ where: { id: id }})
-            
+                var { id } = req.params;
+                let game = await GamesModel.findOne({ where: { id: id } })
+
 
                 if (title != undefined) {
                     game.update({ title: title }, { where: { id: id } })
@@ -85,9 +86,9 @@ const dataList = {
                 if (year != undefined) {
                     game.update({ price: price }, { where: { id: id } })
                 }
-                res.sendStatus(200)
+                res.status(200)
             } catch (err) {
-                console.log(err);
+                res.sendStatus(500);
             }
         }
     }
