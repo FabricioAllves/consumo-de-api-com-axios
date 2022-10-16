@@ -1,4 +1,7 @@
 const UserModel = require('../database/UserModel')
+const jwt = require('jsonwebtoken')
+
+const JWTSecret = "aergsxgzxdrgzdrgzg";
 
 const dataUsers = {
     createUser: async function(req, res){
@@ -22,7 +25,15 @@ const dataUsers = {
             let user = await UserModel.findOne({where: {email: email}});
             if(user != undefined){
                 if(user.password == password){
-                    res.status(200).json({token: "TOKEN FALSO!"}) //(200 => OK)
+                    //informaçoes passadas para dentro do token
+                    jwt.sign({id: user.id, email: user.email}, JWTSecret,{expiresIn:'48h'}, (err, token) => {
+                        if(err){
+                            res.status(400).json({err: "Falha interna"})
+                        }else{
+                            res.status(200).json({token: token}) //(200 => OK)
+                        }
+                    })
+
                 }else{
                     res.status(401).json({err: "Credenciais inválidas!"}) //(401 Não autorizado)
                 }
