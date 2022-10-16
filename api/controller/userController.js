@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken')
 
 const JWTSecret = "aergsxgzxdrgzdrgzg";
 
+
+
 const dataUsers = {
     createUser: async function(req, res){
         try{
