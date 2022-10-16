@@ -2,15 +2,13 @@ const express = require('express');
 const app = express();
 const connection = require("./database/database")
 const gameRouter = require('./router/gamesRouter')
-const userRouter= require('./router/usersRoutes')
+const userRouter= require('./router/usersRoutes');
 const bodyParser = require('body-parser');
 const cors = require("cors");
-
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors())
-
 
 connection.authenticate().then(() => {console.log("Banco conectado com sucesso!!")})
 .catch(() => {console.error("Banco não conectado!")})
