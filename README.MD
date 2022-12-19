@@ -26,9 +26,7 @@
 ## 🧐 Sobre <a name = "about"></a>
 
 <p>
-    API do repositorio [api-rest-games](https://github.com/fabricio-26/api-rest-games) onde neste repositorio atual, refatorei toda a logica que fica no index e crei suas camadas Routes, controller.
-    Api tem como função basica de criar um game definindo title, year e price podendo editar, procurar por todos ou um id, deletar e listar.
-    Retornando um Json com resumo do que há no banco.
+    API do repositório [api-rest-games](https://github.com/fabricio-26/api-rest-games) onde neste repositório atual, refatorei toda a logica que fica no index e criei suas camadas Routes, controller. Api tem como função básica de criar um game definindo title, year e price podendo editar, procurar por todos ou um id, deletar e listar. Retornando um Json com resumo do que há no banco.
 </p>
 
 
